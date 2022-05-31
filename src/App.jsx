@@ -1,12 +1,7 @@
-import GameShop from "./pages/GameShop";
 import React from "react";
 
 const App = () => {
-    return (
-        <div className="App">
-            <GameShop />
-        </div>
-    );
+    return <div className="App"></div>;
 };
 
 export default App;

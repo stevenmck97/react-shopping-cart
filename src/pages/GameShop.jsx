@@ -1,37 +1,10 @@
 import React, { useState } from "react";
 import { GameCard } from "../components/GameCard";
+import { Link } from "react-router-dom";
+import gameStore from "../gameStore.json";
 
 const GameShop = () => {
-    const games = [
-        {
-            id: 1,
-            img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.png",
-            name: "The Witcher 3: Wild Hunt",
-            description: `Good game`,
-            price: 70,
-        },
-        {
-            id: 2,
-            img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wko.png",
-            name: "Call of Duty: Modern Warfare",
-            description: `First person shooter`,
-            price: 40,
-        },
-        {
-            id: 3,
-            img: "https://images.igdb.com/igdb/image/upload/t_cover_big/xrpmydnu9rpxvxfjkiu7.png",
-            name: "Stardew Valley",
-            description: `Farming game`,
-            price: 20,
-        },
-        {
-            id: 4,
-            img: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2k5h.png",
-            name: "Mass Effect: Legendary Edition",
-            description: `Role Playing Game`,
-            price: 70,
-        },
-    ];
+    const games = gameStore;
 
     const [item, setItem] = useState();
     const [cartItem, setCartItem] = useState([]);
@@ -40,6 +13,7 @@ const GameShop = () => {
         const itemName = e.target.name;
         const clickedItem = games.find((obj) => obj.name === itemName);
         setCartItem(clickedItem);
+        setItem(clickedItem);
 
         console.log(cartItem);
     };
@@ -48,11 +22,9 @@ const GameShop = () => {
         <div>
             {games.map((game) => {
                 return (
-                    <GameCard
-                        game={game}
-                        key={game.id}
-                        addCartHandler={addCartHandler}
-                    />
+                    <Link to={`/GameShop/${game.id}`} key={game.id}>
+                        <GameCard game={game} addCartHandler={addCartHandler} />
+                    </Link>
                 );
             })}
         </div>
