@@ -3,19 +3,26 @@ import { GameCard } from "../components/GameCard";
 import { Link } from "react-router-dom";
 import gameStore from "../gameStore.json";
 
-const GameShop = () => {
+const GameShop = ({ cartItem, setCartItem }) => {
     const games = gameStore;
 
-    const [item, setItem] = useState();
-    const [cartItem, setCartItem] = useState([]);
-
     const addCartHandler = (e) => {
+        e.preventDefault();
         const itemName = e.target.name;
-        const clickedItem = games.find((obj) => obj.name === itemName);
-        setCartItem(clickedItem);
-        setItem(clickedItem);
+        const storeItem = games.find((obj) => obj.name === itemName);
+        const stateItem = cartItem.find((obj) => obj.name === itemName);
 
-        console.log(cartItem);
+        /* Checks if the item is in the cart. If it isn't, it adds
+       it to the cart. If it is, it adds one to the count*/
+        !stateItem
+            ? setCartItem(cartItem.concat(storeItem))
+            : setCartItem(
+                  cartItem.map((item) =>
+                      item.name === itemName
+                          ? { ...item, count: item.count + 1 }
+                          : item
+                  )
+              );
     };
 
     return (

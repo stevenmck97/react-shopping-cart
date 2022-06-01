@@ -3,9 +3,16 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
     return (
         <ul>
-            <Link to="/">Home</Link>
-            <Link to="/GameShop">GameShop</Link>
-            {/* <Link to="/Cart"></Link> */}
+            <li>
+                <Link to="/">Home</Link>
+            </li>
+            <li>
+                {" "}
+                <Link to="/GameShop">GameShop</Link>
+            </li>
+            <li>
+                <Link to="/Cart">Cart</Link>
+            </li>
         </ul>
     );
 };
