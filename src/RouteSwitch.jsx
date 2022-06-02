@@ -9,10 +9,13 @@ import Navbar from "./components/Navbar";
 
 const RouteSwitch = () => {
     const [cartItem, setCartItem] = useState([]);
+    const [cartTotal, setCartTotal] = useState(0);
 
     useEffect(() => {
         console.log(cartItem);
-    }, [cartItem]);
+        console.log(cartTotal);
+        setCartTotal(cartItem.reduce((total, item) => total + item.total, 0));
+    }, [cartItem, cartTotal]);
 
     return (
         <BrowserRouter>
@@ -25,11 +28,16 @@ const RouteSwitch = () => {
                         <GameShop
                             cartItem={cartItem}
                             setCartItem={setCartItem}
+                            cartTotal={cartTotal}
+                            setCartTotal={setCartTotal}
                         />
                     }
                 />
                 <Route path="/GameShop/:id" element={<GameDetails />} />
-                <Route path="/Cart" element={<Cart cartItem={cartItem} />} />
+                <Route
+                    path="/Cart"
+                    element={<Cart cartItem={cartItem} cartTotal={cartTotal} />}
+                />
             </Routes>
         </BrowserRouter>
     );

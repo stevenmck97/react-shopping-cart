@@ -5,7 +5,8 @@
         "name": "The Witcher 3: Wild Hunt",
         "description": "Good game",
         "price": 70,
-        "count": 1
+        "count": 1,
+        "total": 70
     },
     {
         "id": 2,
@@ -13,7 +14,8 @@
         "name": "Call of Duty: Modern Warfare",
         "description": "First person shooter",
         "price": 40,
-        "count": 1
+        "count": 1,
+        "total": 40
     },
     {
         "id": 3,
@@ -21,14 +23,16 @@
         "name": "Stardew Valley",
         "description": "Farming game",
         "price": 20,
-        "count": 1
+        "count": 1,
+        "total": 20
     },
     {
         "id": 4,
         "img": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2k5h.png",
         "name": "Mass Effect: Legendary Edition",
         "description": "Role Playing Game",
-        "price": 70,
-        "count": 1
+        "price": 15,
+        "count": 1,
+        "total": 15
     }
 ]
