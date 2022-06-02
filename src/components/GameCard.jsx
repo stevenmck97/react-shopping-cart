@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 export const GameCard = ({ game, addCartHandler, handleClick }) => {
     return (
         <div onClick={handleClick}>

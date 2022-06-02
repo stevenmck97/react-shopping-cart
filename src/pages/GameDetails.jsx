@@ -1,22 +1,25 @@
 import { useEffect } from "react";
 import gameStore from "../gameStore.json";
 import { useParams } from "react-router-dom";
+import { addToCartHandler } from "../functions/cartHandler";
 
-const GameDetails = () => {
+const GameDetails = ({ cartItem, setCartItem }) => {
     useEffect(() => {
         console.log(id);
     });
 
     let { id } = useParams();
-
-    const game = gameStore[id - 1];
+    const games = gameStore[id - 1];
+    const addToCart = addToCartHandler(cartItem, setCartItem, games);
 
     return (
         <div>
-            <img src={game.img} alt={game.name} />
-            <h1>{game.name}</h1>
-            <p>Price: {game.price}</p>
-            <button name={game.name}>Add to cart</button>
+            <img src={games.img} alt={games.name} />
+            <h1>{games.name}</h1>
+            <p>Price: {games.price}</p>
+            <button name={games.name} onClick={addToCart}>
+                Add to cart
+            </button>
         </div>
     );
 };

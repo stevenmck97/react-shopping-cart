@@ -33,7 +33,15 @@ const RouteSwitch = () => {
                         />
                     }
                 />
-                <Route path="/GameShop/:id" element={<GameDetails />} />
+                <Route
+                    path="/GameShop/:id"
+                    element={
+                        <GameDetails
+                            cartItem={cartItem}
+                            setCartItem={setCartItem}
+                        />
+                    }
+                />
                 <Route
                     path="/Cart"
                     element={<Cart cartItem={cartItem} cartTotal={cartTotal} />}
