@@ -9,15 +9,16 @@ const GameDetails = ({ cartItem, setCartItem }) => {
     });
 
     let { id } = useParams();
-    const games = gameStore[id - 1];
+    const game = gameStore[id - 1];
+    const games = gameStore;
     const addToCart = addToCartHandler(cartItem, setCartItem, games);
 
     return (
         <div>
-            <img src={games.img} alt={games.name} />
-            <h1>{games.name}</h1>
-            <p>Price: {games.price}</p>
-            <button name={games.name} onClick={addToCart}>
+            <img src={game.img} alt={game.name} />
+            <h1>{game.name}</h1>
+            <p>Price: {game.price}</p>
+            <button name={game.name} onClick={addToCart}>
                 Add to cart
             </button>
         </div>
