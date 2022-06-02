@@ -20,3 +20,9 @@ export const addToCartHandler = (cartItem, setCartItem, games) => (e) => {
               )
           );
 };
+
+export const deleteCartItemHandler = (cartItem, setCartItem) => (e) => {
+    const itemName = e.target.name;
+    const newCart = cartItem.filter((item) => item.name !== itemName);
+    setCartItem(newCart);
+};
