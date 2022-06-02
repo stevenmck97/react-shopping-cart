@@ -6,7 +6,7 @@ const Cart = ({ cartItem }) => {
                     <div key={item.id}>
                         <p>{item.name}</p>
                         <span>
-                            <p>{item.price * item.count}</p>
+                            <p>{item.total}</p>
                             <p>{item.count}</p>
                         </span>
                     </div>

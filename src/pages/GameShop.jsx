@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { GameCard } from "../components/GameCard";
 import { Link } from "react-router-dom";
 import gameStore from "../gameStore.json";
@@ -19,7 +19,11 @@ const GameShop = ({ cartItem, setCartItem }) => {
             : setCartItem(
                   cartItem.map((item) =>
                       item.name === itemName
-                          ? { ...item, count: item.count + 1 }
+                          ? {
+                                ...item,
+                                count: item.count + 1,
+                                total: item.price * (item.count + 1),
+                            }
                           : item
                   )
               );
