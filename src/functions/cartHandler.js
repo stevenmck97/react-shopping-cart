@@ -42,7 +42,7 @@ export const updateCartItemHandler = (cartItem, setCartItem, op) => (e) => {
                 ? {
                       ...item,
                       count: update(item),
-                      total: item.price * item.count,
+                      total: item.price * update(item),
                   }
                 : item
         )
