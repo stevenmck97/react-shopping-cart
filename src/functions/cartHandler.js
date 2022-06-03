@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 export const addToCartHandler = (cartItem, setCartItem, games) => (e) => {
     e.preventDefault();
     const itemName = e.target.name;
@@ -25,4 +27,34 @@ export const deleteCartItemHandler = (cartItem, setCartItem) => (e) => {
     const itemName = e.target.name;
     const newCart = cartItem.filter((item) => item.name !== itemName);
     setCartItem(newCart);
+};
+
+export const updateCartItemHandler = (cartItem, setCartItem, op) => (e) => {
+    const itemName = e.target.name;
+
+    // const updateCount = cartItem.map((item) =>
+    //     item.name === itemName
+    //         ? {
+    //               ...item,
+    //               count: `${item.count} ${op} ${1}`,
+    //           }
+    //         : item
+    // );
+
+    const update = (item) => {
+        const yolo = op === "+" ? item.count + 1 : item.count - 1;
+        return yolo;
+    };
+
+    setCartItem(
+        cartItem.map((item) =>
+            item.name === itemName
+                ? {
+                      ...item,
+                      count: update(item),
+                      total: item.price * (item.count + 1),
+                  }
+                : item
+        )
+    );
 };
