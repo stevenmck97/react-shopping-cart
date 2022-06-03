@@ -32,18 +32,8 @@ export const deleteCartItemHandler = (cartItem, setCartItem) => (e) => {
 export const updateCartItemHandler = (cartItem, setCartItem, op) => (e) => {
     const itemName = e.target.name;
 
-    // const updateCount = cartItem.map((item) =>
-    //     item.name === itemName
-    //         ? {
-    //               ...item,
-    //               count: `${item.count} ${op} ${1}`,
-    //           }
-    //         : item
-    // );
-
     const update = (item) => {
-        const yolo = op === "+" ? item.count + 1 : item.count - 1;
-        return yolo;
+        return op === "+" ? item.count + 1 : item.count - 1;
     };
 
     setCartItem(
@@ -52,7 +42,7 @@ export const updateCartItemHandler = (cartItem, setCartItem, op) => (e) => {
                 ? {
                       ...item,
                       count: update(item),
-                      total: item.price * (item.count + 1),
+                      total: item.price * item.count,
                   }
                 : item
         )
