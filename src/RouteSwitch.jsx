@@ -20,7 +20,7 @@ const RouteSwitch = () => {
         <BrowserRouter>
             <Navbar />
             <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Home cartItem={cartItem} />} />
                 <Route
                     path="/GameShop"
                     element={
