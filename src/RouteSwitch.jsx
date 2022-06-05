@@ -12,9 +12,8 @@ const RouteSwitch = () => {
     const [cartTotal, setCartTotal] = useState(0);
 
     useEffect(() => {
-        console.log(cartItem);
-        console.log(cartTotal);
         setCartTotal(cartItem.reduce((total, item) => total + item.total, 0));
+        setCartItem(cartItem.filter((item) => item.count !== 0));
     }, [cartItem, cartTotal]);
 
     return (

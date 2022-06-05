@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-
 export const addToCartHandler = (cartItem, setCartItem, games) => (e) => {
     e.preventDefault();
     const itemName = e.target.name;
